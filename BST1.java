@@ -1,4 +1,5 @@
 import java.util.*;
+//creating the Node
 class Node{
 	int data;
 	Node lchild;
@@ -9,6 +10,7 @@ class Node{
 		this.rchild=null;
 	}
 }
+//Main class
 public class BST1{
 	static Node root;
 	public static void main(String[] args){
@@ -26,6 +28,7 @@ public class BST1{
 			insert(60);
 		display(Root());
 	}
+	//Inserting the node
 	static void insert(int key){
 		Node t=root;
 		Node r=null;
@@ -50,9 +53,11 @@ public class BST1{
 		else 
 			r.rchild=node;
 	}
+	//gives the address of root node
 	static Node Root(){
 		return root;
 	}
+	// DIsplay the Binary Search tree
 	public static void display(Node n){
 		if(n!=null){
 			display(n.lchild);
@@ -60,6 +65,7 @@ public class BST1{
 			display(n.rchild);
 		}
 	}
+	//Gives the Height of tree
 	public static int Height(Node n){
 		int x,y;
 		if(n==null)return 0;
@@ -67,18 +73,19 @@ public class BST1{
 		y=Height(n.rchild);
 		return x>y?x+1:y+1;
 	}
+	//Predecessor gives the right most element of left sub tree
 	public static Node inPre(Node n){
 		while((n!=null) &&(n.rchild!=null))
 			n=n.rchild;
 		return n;
-			
 	}
+	//Successor gives the left most element of right sub tree
 	public static Node inSuc(Node n){
 		while((n!=null) &&(n.lchild!=null))
 			n=n.lchild;
 		return n;
-			
 	}
+	//Delete the Node and after deleting Maintain the property of Binary search Tree
 	public static Node Delete(Node n,int key){
 		if(n==null)
 			return null;
